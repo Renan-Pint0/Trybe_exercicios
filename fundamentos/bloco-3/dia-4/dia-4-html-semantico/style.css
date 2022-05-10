@@ -1,0 +1,22 @@
+#navegação{
+   display: inline-block;
+   border: 2px solid rosybrown;
+    background-color:gray;
+}
+#imagem{
+    border-radius: 100%;
+}
+body{
+    background-color: teal;
+}
+header{
+    text-align: center;
+    font-weight: bold;
+}
+ul{
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+li{
+    padding: 15px;
+}
