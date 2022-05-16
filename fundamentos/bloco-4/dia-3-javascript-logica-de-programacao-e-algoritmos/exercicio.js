@@ -17,7 +17,8 @@ for (let index = word.length - 1; index >= 0; index-= 1) {
 var resultado = inverso.toString()
 console.log(resultado);   
 
-// Questão 3 -  //
+// Questão 3 - Palavra maior e menor //
+
 let array = ['java', 'javascript', 'python', 'html', 'css'];
 //console.log(array[0])
 let maior = 0;
@@ -38,3 +39,20 @@ for (let index = 0; index < array.length; index+=1) {
 }
     console.log(pMaior);
     console.log(pMenor);
+
+// Questão 4 - Maior primo de 0 a 50 //
+
+let primo = 0;
+let numDivisao = 0;
+for (let index = 0 ; index <= 50; index+=1) {
+    let ePrimo = true;
+    for(let indicePrimo = 2; indicePrimo < index; indicePrimo+=1){
+        if (index %  indicePrimo === 0) {
+            ePrimo = false;
+        }
+    }
+    if (ePrimo) {
+        primo = index;
+    }
+}
+console.log(primo);
