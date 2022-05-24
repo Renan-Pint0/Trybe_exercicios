@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+      const son = document.createElement('h1');
+      const sonText = document.createTextNode('Exercício 5.2 - JavaScript DOM');
+      son.appendChild(sonText);
+      document.querySelector('body').appendChild(son);
+
+      const secondSon = document.createElement('main');
+      secondSon.className = 'main-content';
+      document.querySelector('body').appendChild(secondSon);
+
+      const sonOfSecondSon = document.createElement('section');
+      sonOfSecondSon.className = 'center-content';
+      document.querySelector('main').appendChild(sonOfSecondSon);
+
+      const grandson = document.createElement('p');
+      grandson.innerText = 'Está tudo dando certo papai';
+      document.querySelector('.center-content').appendChild(grandson);
+
+      const secondSonOfSecondSon = document.createElement('section');
+      secondSonOfSecondSon.className = 'left-content';
+      document.querySelector('main').appendChild(secondSonOfSecondSon);
+
+      const thirdSonOfSecondSon = document.createElement('section');
+      thirdSonOfSecondSon.className = 'right-content';
+      document.querySelector('main').appendChild(thirdSonOfSecondSon);
+
+      const imageSon = document.createElement('img');
+      imageSon.className = 'small-image';
+      imageSon.src = 'https://picsum.photos/200'
+      document.querySelector('.left-content').appendChild(imageSon);
+
+      const listSon = document.createElement('ul');
+      thirdSonOfSecondSon.appendChild(listSon);
+      const arrayNumbers = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis',
+        'Sete', 'Oito', 'Nove', 'Dez'];
+      for (let num in arrayNumbers) {
+        const elementLi = document.createElement('li');
+        elementLi.innerHTML = arrayNumbers[num];
+        listSon.appendChild(elementLi);
+      }
+
+      for (let index = 1; index <= 3; index+=1) {
+        const outroFilhoDaMain = document.createElement('h3');
+        outroFilhoDaMain.innerHTML = 'Índice ' + index;
+        secondSon.appendChild(outroFilhoDaMain);
+      }
+
+      son.className = 'title';
+      
+      for(let index = secondSon.childNodes.length -1; index >=0; index -=1) {
+        const filhoAtual = secondSon.childNodes[index];
+        if (filhoAtual.className === '') {
+          filhoAtual.className = 'description'; 
+        }
+      }
+
+      secondSon.removeChild(secondSonOfSecondSon);
+
+      thirdSonOfSecondSon.style.marginRight = 'auto';
+
+      const backColor = document.getElementsByClassName('center-content')[0];
+      backColor.parentElement.style.backgroundColor = 'green';
+
+      listSon.lastChild.remove();
+      listSon.lastChild.remove();
+
+    </script>
+  </body>
+</html>
